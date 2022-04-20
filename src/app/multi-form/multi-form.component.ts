@@ -9,15 +9,31 @@ import { order } from "../model/order.model";
 })
 export class MultiFormComponent implements OnInit {
 
-  
+
   constructor(private _fb: FormBuilder) { }
   public addmore: FormGroup;
 
+  isorderEditable = false;
+
   ngOnInit() {
+
     this.addmore = this._fb.group({
-      itemRows: this._fb.array([this.initItemRows()])
+      itemRows: this._fb.array(
+        this.values.map((x) =>
+          this._fb.group({
+            order: this._fb.control(x.order),
+            rule: this._fb.control(x.rule),
+          })
+        )
+      ),
     });
+
+
+    // this.addmore = this._fb.group({
+    //   itemRows: this._fb.array([this.initItemRows()])
+    // });
   }
+
   get formArr() {
     return this.addmore.get('itemRows') as FormArray;
   }
@@ -28,10 +44,11 @@ export class MultiFormComponent implements OnInit {
 
   initItemRows() {
     return this._fb.group({
-      order: [''],
-      rule: [''],
+      order: '',
+      rule: '',
     });
   }
+
   addNewRow() {
     this.formArr.push(this.initItemRows());
   }
@@ -39,5 +56,28 @@ export class MultiFormComponent implements OnInit {
   deleteRow(index: number) {
     this.formArr.removeAt(index);
   }
+  
+  editorder() {
+    this.isorderEditable = true;
+  }
+
+  cancelorder() {
+    this.isorderEditable = false;
+  }
+
+
+
+
+  values = [
+    {
+      order: "14",
+      rule: "6"
+    },
+    {
+      order: "21",
+      rule: "2"
+    },
+  ];
+
 
 }
