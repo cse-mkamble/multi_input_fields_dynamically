@@ -18,20 +18,11 @@ export class MultiFormComponent implements OnInit {
   ngOnInit() {
 
     this.addmore = this._fb.group({
-      itemRows: this._fb.array(
-        this.values.map((x) =>
-          this._fb.group({
-            order: this._fb.control(x.order),
-            rule: this._fb.control(x.rule),
-          })
-        )
-      ),
+      itemRows: this._fb.array([this.initItemRows()])
     });
 
+    console.log(this.addmore);
 
-    // this.addmore = this._fb.group({
-    //   itemRows: this._fb.array([this.initItemRows()])
-    // });
   }
 
   get formArr() {
@@ -56,9 +47,23 @@ export class MultiFormComponent implements OnInit {
   deleteRow(index: number) {
     this.formArr.removeAt(index);
   }
-  
+
   editorder() {
     this.isorderEditable = true;
+
+    this.addmore = this._fb.group({
+      itemRows: this._fb.array(
+        this.values.map((x) =>
+          this._fb.group({
+            order: this._fb.control(x.order),
+            rule: this._fb.control(x.rule),
+          })
+        )
+      ),
+    });
+
+    console.log(this.addmore);
+
   }
 
   cancelorder() {
