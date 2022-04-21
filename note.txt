@@ -1,0 +1,50 @@
+
+
+"value" : [
+    "name" : "Mayur Kamble"
+    "addressess" : [
+        {
+            "postcode": "442701",
+            "street": "18/9, Santoshi Mata Ward, Ballarpur, Chandrapur, MH"
+        },
+        {
+            "street": "239/9, Budha Virhar Madir, Ballarpur, Chandrapur, Mahārāshtra, India",
+            "postcode": "442701"
+        }
+    ]
+]
+
+"cases_cited" : [
+    {
+        "party_name" : "Gulabchand Chhotalal v. State of Gujarat",
+        "citations" : [
+            "(1965) AIR 1965 SC 1153 (V 42)",
+            "(1965) 2 SCR 547"
+        ],
+        "para_nos" :  [
+            "5"
+        ]
+    },
+    {
+        "party_name" : "Gulabchand Chhotalal v. State of Gujarat",
+        "citations" : [
+            "(1965) AIR 1965 SC 1153 (V 42)",
+            "(1965) 2 SCR 547"
+        ],
+        "para_nos" :  [
+            "5"
+        ]
+    }
+]
+
+act_statue_name: [
+    {
+        name: "Negotiable Instruments Act, 1881",
+        section: [ "137", "136", "138"]
+    },
+    {
+        name: "Code of Civil Procedure, 1908",
+        section: [ "12", "36", "8"]
+    }
+]
+
